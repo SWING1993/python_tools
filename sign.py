@@ -33,7 +33,7 @@ def null_sign_task():
     text = "NULL sign task " + status  + " " + msg
     return text
 
-def dingMsg(text):
+def push_ding_msg(text):
     headers = {'Content-Type': 'application/json;charset=utf-8'}
     api_url = "https://oapi.dingtalk.com/robot/send?access_token=7e6f02c3087edd19362340532a116a1f98d5b4310dba34685560598dc3803ccf"
     json_text = {
@@ -50,7 +50,7 @@ def dingMsg(text):
     }
     requests.post(api_url, json.dumps(json_text), None, headers=headers)
 
-def pushToOrangeMsg(text):
+def push_orange_msg(text):
     headers = {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'}
     api_url = "http://118.24.216.163:8080/orange/message/send"
     json_text = {
@@ -62,6 +62,6 @@ def pushToOrangeMsg(text):
 
 
 msg_text = swing_sign_task() + "\n" + null_sign_task()
-dingMsg(msg_text)
-pushToOrangeMsg(msg_text)
+push_ding_msg(msg_text)
+push_orange_msg(msg_text)
 

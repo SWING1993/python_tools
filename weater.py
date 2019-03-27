@@ -28,7 +28,7 @@ def push_orange_msg(text):
     api_url = "http://118.24.216.163:8080/orange/message/send"
     json_text = {
         "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIyIiwiZXhwIjoxNTU1MDcyMDQ0fQ.hPfK8X0PM3IjnOWliBrq4OALRhvVgR3NFv0ROnteYfc",
-        "title": "杭州天气预报",
+        "title": "杭州市天气预报",
         "content": text
     }
     requests.post(api_url, json_text, None, headers=headers)
