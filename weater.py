@@ -77,5 +77,4 @@ def daily_weather():
 
     return ""
 
-msg = now_weather() + daily_weather()
-push_orange_msg(msg)
+push_orange_msg(now_weather() + daily_weather())
