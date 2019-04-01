@@ -57,7 +57,7 @@ def push_orange_msg(text):
 def now_weather():
     headers = {'Content-Type': 'application/json;charset=utf-8'}
     api_url = "https://api.seniverse.com/v3/weather/now.json?key=5g9hezbxwxfoo6ty&location=hangzhou&language=zh-Hans&unit=c"
-    r = requests.get(api_url, None, headers=headers)
+    r = requests.get(api_url, headers=headers)
     if r.status_code == 200:
         json = r.json()
         return unicode("当前气温", "utf-8") + jsonpath.jsonpath(json, '$..temperature')[0]+ unicode("°C ", "utf-8") + jsonpath.jsonpath(json, '$..text')[0] + unicode("\n", "utf-8")
@@ -65,15 +65,17 @@ def now_weather():
 
 def daily_weather():
     headers = {'Content-Type': 'application/json;charset=utf-8'}
-    api_url = "https://api.seniverse.com/v3/weather/daily.json?key=5g9hezbxwxfoo6ty&location=hangzhou&language=zh-Hans&unit=c&days=2"
-    r = requests.get(api_url, None, headers=headers)
+    api_url = "https://api.seniverse.com/v3/weather/daily.json?key=5g9hezbxwxfoo6ty&location=hangzhou&language=zh-Hans&unit=c&days=3"
+    r = requests.get(api_url, headers=headers)
     print r.text
     if r.status_code == 200:
         json = r.json()
         d1 = unicode("今天：", "utf-8") + jsonpath.jsonpath(json, '$..low')[0] + unicode("°C到", "utf-8") + jsonpath.jsonpath(json, '$..high')[0] + unicode("°C ", "utf-8") + unicode("白天", "utf-8") + jsonpath.jsonpath(json, '$..text_day')[0] + unicode("，夜间", "utf-8") + jsonpath.jsonpath(json, '$..text_night')[0] + unicode("\n", "utf-8")
-        d2 = unicode("明天：", "utf-8") + jsonpath.jsonpath(json, '$..low')[1] + unicode("°C到", "utf-8") + jsonpath.jsonpath(json, '$..high')[1] + unicode("°C ", "utf-8") + unicode("白天", "utf-8") + jsonpath.jsonpath(json, '$..text_day')[1] + unicode("，夜间", "utf-8") + jsonpath.jsonpath(json, '$..text_night')[1]
-        return d1 + d2
+        d2 = unicode("明天：", "utf-8") + jsonpath.jsonpath(json, '$..low')[1] + unicode("°C到", "utf-8") + jsonpath.jsonpath(json, '$..high')[1] + unicode("°C ", "utf-8") + unicode("白天", "utf-8") + jsonpath.jsonpath(json, '$..text_day')[1] + unicode("，夜间", "utf-8") + jsonpath.jsonpath(json, '$..text_night')[1] + unicode("\n", "utf-8")
+        d3 = unicode("后天：", "utf-8") + jsonpath.jsonpath(json, '$..low')[2] + unicode("°C到", "utf-8") + jsonpath.jsonpath(json, '$..high')[2] + unicode("°C ", "utf-8") + unicode("白天", "utf-8") + jsonpath.jsonpath(json, '$..text_day')[2] + unicode("，夜间", "utf-8") + jsonpath.jsonpath(json, '$..text_night')[2]
+        return d1 + d2 + d3
 
     return ""
 
-push_orange_msg(now_weather() + daily_weather())
+msg = now_weather() + daily_weather()
+push_orange_msg(msg)
