@@ -67,7 +67,6 @@ def daily_weather():
     headers = {'Content-Type': 'application/json;charset=utf-8'}
     api_url = "https://api.seniverse.com/v3/weather/daily.json?key=5g9hezbxwxfoo6ty&location=hangzhou&language=zh-Hans&unit=c&days=3"
     r = requests.get(api_url, headers=headers)
-    print r.text
     if r.status_code == 200:
         json = r.json()
         d1 = unicode("今天：", "utf-8") + jsonpath.jsonpath(json, '$..low')[0] + unicode("°C到", "utf-8") + jsonpath.jsonpath(json, '$..high')[0] + unicode("°C ", "utf-8") + unicode("白天", "utf-8") + jsonpath.jsonpath(json, '$..text_day')[0] + unicode("，夜间", "utf-8") + jsonpath.jsonpath(json, '$..text_night')[0] + unicode("\n", "utf-8")
@@ -77,4 +76,4 @@ def daily_weather():
 
     return ""
 
-push_orange_msg(now_weather() + daily_weather())
+push_orange_msg(now_weather()+daily_weather())
