@@ -38,7 +38,7 @@ def push_orange_msg(text):
     headers = {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'}
     api_url = "http://118.24.216.163:8080/orange/message/send"
     json_text = {
-        "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIyIiwiZXhwIjoxNTU1MDcyMDQ0fQ.hPfK8X0PM3IjnOWliBrq4OALRhvVgR3NFv0ROnteYfc",
+        "messageToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIyIiwiZXhwIjoxNTU1NjUyNjI2fQ.MwZuRFzlOLEqKADVjQ5sHEvRBZxAxIzAQqsymOJvOYk",
         "title": "杭州市天气预报",
         "content": text
     }
