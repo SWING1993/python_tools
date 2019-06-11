@@ -61,7 +61,7 @@ def push_orange_msg(text):
     requests.post(api_url, json_text, None, headers=headers)
 
 
-msg_text = swing_sign_task() + "\n" + null_sign_task()
+msg_text = "小黑盒签到任务：\n" + swing_sign_task() + "\n" + null_sign_task()
 push_ding_msg(msg_text)
 push_orange_msg(msg_text)
 
