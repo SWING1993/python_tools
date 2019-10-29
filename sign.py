@@ -35,7 +35,7 @@ def null_sign_task():
 
 def push_ding_msg(text):
     headers = {'Content-Type': 'application/json;charset=utf-8'}
-    api_url = "https://oapi.dingtalk.com/robot/send?access_token=15018194c2e2025afd72ff340a438fa445608eeecb1bf62f45816f5919760580"
+    api_url = "https://oapi.dingtalk.com/robot/send?access_token=e9b31af8daaa78ca1535580af06abb421d0fa889750dec3b2d9f87eac25fae9a"
     json_text = {
         "msgtype": "text",
         # "at": {
